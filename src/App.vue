@@ -1,32 +1,58 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <SideBar />
+    <div class="main">
+      <router-view />
+    </div>
   </div>
 </template>
 
+<script>
+// import request from "./api/request";
+// import markdownIt from "markdown-it";
+import SideBar from "./components/SideBar.vue";
+// const md = markdownIt();
+export default {
+  components: {
+    SideBar,
+  },
+  mounted() {
+    // this.init();
+    // this.articleList();
+  },
+  methods: {
+    // init() {
+    //   const markdownInput = `# 这是一段MARKDOWN代码\n\n## 不能换行?\n\n### 淦!`;
+    //   // 将 Markdown 代码转换为 HTML 代码
+    //   const htmlOutput = md.render(markdownInput);
+    //   // 输出 HTML 代码到页面上
+    //   document.getElementById("markdown-output").innerHTML = htmlOutput;
+    // },
+    // async articleList() {
+    //   let res = await request.get("/api/articles/list");
+    //   console.log(res);
+    // },
+  },
+};
+</script>
+
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+html, body{
+  margin: 0;
+  padding: 0;
 }
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+* {
+  // margin: 0;
+  // padding: 0;
+  box-sizing: border-box;
+  // text-decoration: none;
+  // color: #333;
+  list-style: none;
+}
+#app {
+  & > .main {
+    // padding-left: 300px;
+    padding: 1rem 1rem 1rem calc(300px + 1rem);
   }
 }
 </style>
